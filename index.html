@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CV de Yi Saint-Jour. Creative Project Lead y Diseñadora Multidisciplinaria con visión 360°. Gestión estratégica y ejecución técnica.">
+    <title>CV - Yi Saint-Jour</title>
+    
+    <!-- Tipografía: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Estilo Editorial / Martin Lorenz */
+            --bg-color: #FFFFFF;
+            --text-color: #111111;
+            --accent-color: #555555; 
+            --line-color: #000000; /* Líneas negras sólidas */
+            --font-main: 'Inter', Helvetica, Arial, sans-serif;
+            --max-width: 900px;
+        }
+
+        /* RESET */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding: 40px 20px;
+        }
+
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* ENLACES */
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.2s, color 0.2s;
+        }
+        a:hover {
+            border-bottom: 1px solid var(--text-color);
+            color: #000;
+        }
+
+        /* HEADER */
+        header {
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .role {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        /* META DATA (Nav + Contacto) */
+        .header-meta {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 2px solid var(--line-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .nav-links a { 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            font-size: 0.85rem; 
+            color: var(--text-color); 
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            color: var(--accent-color);
+            flex-wrap: wrap;
+        }
+        .contact-links a { color: var(--text-color); }
+
+        /* SECCIONES */
+        section {
+            padding-top: 30px;
+            margin-bottom: 60px;
+            border-top: 1px solid var(--line-color);
+            scroll-margin-top: 40px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+        }
+
+        /* Títulos de Sección */
+        h2 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        h2::before {
+            content: "✶ ";
+            color: var(--text-color);
+        }
+
+        /* Contenido */
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* ESTILO PERFIL */
+        .bio-text p {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            max-width: 95%;
+        }
+        .bio-text p:last-child { margin-bottom: 0; }
+        
+        .highlight {
+            font-weight: 500;
+            color: #000;
+            padding-left: 15px;
+            border-left: 3px solid var(--line-color);
+        }
+
+        /* ESTILO ENTRADAS */
+        .entry {
+            display: grid;
+            grid-template-columns: 1fr 140px;
+            gap: 20px;
+        }
+
+        .entry-main h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .institution {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: #333;
+            max-width: 95%;
+            margin-top: 10px;
+        }
+        
+        .description p { margin-bottom: 0.5rem; }
+        .description ul { padding-left: 20px; margin-bottom: 10px; }
+        .description li { margin-bottom: 5px; }
+
+        .date {
+            text-align: right;
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-feature-settings: "tnum";
+            white-space: pre-line; 
+            color: var(--accent-color);
+        }
+
+        /* ESTILO COMPETENCIAS CLAVE (Nuevo) */
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        
+        .comp-category h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .comp-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .comp-list li {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            line-height: 1.4;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            body { padding: 30px 25px; }
+            h1 { font-size: 2.2rem; }
+            
+            section {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding-top: 25px;
+                margin-bottom: 50px;
+            }
+
+            h2 {
+                position: static;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #eee;
+                margin-bottom: 10px;
+                color: var(--text-color);
+            }
+
+            .entry {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .entry-main { order: 2; }
+            .date { 
+                order: 1; 
+                text-align: left; 
+                margin-bottom: 5px; 
+                font-size: 0.8rem;
+                opacity: 0.8;
+            }
+
+            .bio-text p { font-size: 1.1rem; }
+            .header-meta { flex-direction: column; gap: 20px; }
+            .competencies-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        
+        <!-- HEADER -->
+        <header>
+            <h1>Yi Saint-Jour</h1>
+            <div class="role">Creative Project Lead | Diseño 360°</div>
+            
+            <div class="header-meta">
+                <!-- Navegación interna -->
+                <nav class="nav-links">
+                    <a href="#perfil">Perfil</a>
+                    <a href="#competencias">Competencias</a>
+                    <a href="#experiencia">Profesional</a>
+                    <a href="#docencia">Docencia</a>
+                    <a href="#formacion">Formación</a>
+                </nav>
+                
+                <!-- Contacto -->
+                <div class="contact-links">
+                    <a href="mailto:yi.creativa@gmail.com">yi.creativa@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/yyyi" target="_blank">LinkedIn</a>
+                    <a href="https://www.behance.net/yyyi" target="_blank">Behance</a>
+                    <span>Santiago, Chile</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 1. PERFIL -->
+        <section id="perfil">
+            <h2>Perfil</h2>
+            <div class="content bio-text">
+                <p>
+                    <strong>Creative Project Lead con visión 360°.</strong> Combino la gestión estratégica con la ejecución técnica en diseño digital, fotografía y narrativa audiovisual.
+                </p>
+                <p>
+                    Egresada con distinción máxima como Diseñadora de la Universidad de Chile, mi metodología integra todo el proceso creativo: no solo diseño, sino que conceptualizo, dirijo y produzco.
+                </p>
+                <p class="highlight">
+                    Mi valor principal es la profundidad: trabajo bajo un análisis riguroso para asegurar que cada pieza —ya sea impresa o digital— no sea meramente estética, sino que responda a una coherencia narrativa y a un objetivo sólido.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2. COMPETENCIAS CLAVE -->
+        <section id="competencias">
+            <h2>Competencias Clave</h2>
+            <div class="content">
+                <div class="competencies-grid">
+                    
+                    <!-- Columna 1 -->
+                    <div class="comp-category">
+                        <h3>Gestión & Estrategia</h3>
+                        <ul class="comp-list">
+                            <li>Design Project Management</li>
+                            <li>Dirección de Arte & Conceptualización</li>
+                            <li>Estrategia de Comunicación Visual</li>
+                            <li>Coherencia Narrativa & Storytelling</li>
+                            <li>Design Thinking</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Columna 2 -->
+                    <div class="comp-category">
+                        <h3>Dominio Técnico & Creativo</h3>
+                        <ul class="comp-list">
+                            <li>Branding e Identidad Visual</li>
+                            <li>Diseño Digital & Social Media</li>
+                            <li>Diseño Multimedia (Video/Audio/Interactividad)</li>
+                            <li>Motion Graphics & Animación</li>
+                            <li>Herramientas de IA</li>
+                            <li>Fotografía & Retoque Digital</li>
+                            <li>Ilustración 2D y 3D</li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna 3 -->
+                    <div class="comp-category">
+                        <h3>Metodología</h3>
+                        <ul class="comp-list">
+                            <li>Visión Sistémica (Procesos completos)</li>
+                            <li>Análisis Riguroso & Criterio Estético</li>
+                            <li>Resolución de Problemas</li>
+                            <li>Adaptabilidad & Autonomía</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. EXPERIENCIA PROFESIONAL -->
+        <section id="experiencia">
+            <h2>Experiencia Profesional</h2>
+            <div class="content">
+                
+                <!-- SDE -->
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Design Project Manager</h3>
+                        <span class="institution">Santiago Design Experience (SDE)</span>
+                        <div class="description">
+                            <p><strong>Gestión Estratégica:</strong> Liderazgo y visión global de proyectos creativos, asegurando que el objetivo del cliente se traduzca en una ejecución visual coherente y de alto impacto.</p>
+                            <p><strong>Orquestación de Flujos:</strong> Planificación y validación de entregables, actuando como enlace estratégico entre el cliente y el equipo de diseño.</p>
+                        </div>
+                    </div>
+                    <span class="date">Jun 2025 – Presente</span>
+                </article>
+
+                <!-- Urimusic -->
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Lead Designer & Coordinadora Visual (Giras LATAM)</h3>
+                        <span class="institution">Urimusic Entertainment</span>
+                        <div class="description">
+                            <p>Liderazgo integral de campañas visuales y experiencias para giras de artistas de K-pop en Chile, Brasil, México y Perú.</p>
+                            <ul>
+                                <li><strong>Eventos:</strong> Fanmeetings 'IN LOVE' (Hwang In Youp) y 'OUR TIME' (Jung Hae In); Conciertos 'Luck Inside 7 Doors' (Dreamcatcher) y 'About Damn Time' (pH-1).</li>
+                                <li><strong>Diseño 360°:</strong> Desarrollo de ecosistemas completos: campañas digitales, assets para ticketeras, gran formato, señalética y diseño de merchandising oficial.</li>
+                                <li><strong>Coordinación Internacional:</strong> Adaptación de normativas gráficas por país, garantizando coherencia estética y estándares de calidad global.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span class="date">Abr 2023 – Mar 2025</span>
+                </article>
+
+                <!-- Independiente -->
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Consultora Creativa & Diseñadora Multidisciplinar</h3>
+                        <span class="institution">Profesional Independiente</span>
+                        <div class="description">
+                            <p>Gestión autónoma de identidad visual y contenido para el sector cultural y musical. Desarrollo multidisciplinario (foto, video, ilustración 2D/3D) adaptable a diversas plataformas.</p>
+                        </div>
+                    </div>
+                    <span class="date">Jun 2019 – Presente</span>
+                </article>
+
+                <!-- PROYECTOS DESTACADOS (Subtítulo visual) -->
+                <h3 style="margin-top: 20px; font-size: 0.9rem; text-transform: uppercase; color: #555; border-bottom: 1px solid #eee; padding-bottom: 5px;">Proyectos Destacados & Innovación</h3>
+
+                <!-- CRTIC AR -->
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Diseñadora AR (Realidad Aumentada)</h3>
+                        <span class="institution">CRTIC - Congreso Futuro</span>
+                        <div class="description">
+                            <p>Diseño y programación de filtros y experiencias inmersivas para la exhibición “SinfonIA Digital”.</p>
+                        </div>
+                    </div>
+                    <span class="date">Dic 2023 – Ene 2024</span>
+                </article>
+
+                <!-- Cherry Pop -->
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Realizadora Audiovisual & Contenido</h3>
+                        <span class="institution">Cherry Pop / All Dance Int.</span>
+                        <div class="description">
+                            <p>Producción de contenido dinámico para redes sociales y cobertura de eventos en vivo.</p>
+                        </div>
+                    </div>
+                    <span class="date">2021 – 2024</span>
+                </article>
+
+                <!-- Vitacura -->
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Diseñadora Gráfica (Práctica Profesional)</h3>
+                        <span class="institution">Municipalidad de Vitacura - Dir. Asesoría Urbana</span>
+                        <div class="description">
+                            <p>Diseño de gráficas de difusión y creación visual de la campaña educativa sobre ciclo-inclusión: “Somos Parte”.</p>
+                        </div>
+                    </div>
+                    <span class="date">2020</span>
+                </article>
+
+                <!-- NoiX -->
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Staff de Producción en Terreno</h3>
+                        <span class="institution">NoiX Entertainment</span>
+                        <div class="description">
+                            <p>Soporte logístico y operativo en eventos masivos (Music Bank Chile, NCT 127), asegurando el correcto flujo de la experiencia en el recinto.</p>
+                        </div>
+                    </div>
+                    <span class="date">2022 – 2023</span>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 4. DOCENCIA & ACADEMIA -->
+        <section id="docencia">
+            <h2>Docencia & Academia</h2>
+            <div class="content">
+                
+                <!-- FAU -->
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Ayudante de Cátedra & Guía de Proyectos</h3>
+                        <span class="institution">Facultad de Arquitectura y Urbanismo (FAU) - U. de Chile</span>
+                        <div class="description">
+                            <p>Acompañamiento académico a estudiantes de ciclo avanzado (3er y 4to año) en el desarrollo de proyectos de diseño, bajo la cátedra del Prof. Rodrigo Dueñas.</p>
+                            <ul>
+                                <li><strong>Cursos:</strong> Taller de Proyecto VII (Mención Visualidad y Medios) y Diseño Editorial.</li>
+                                <li><strong>Rol:</strong> Guía en procesos de investigación, conceptualización y formalización. Fomento del pensamiento crítico y la coherencia narrativa.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span class="date">2023 – 2025</span>
+                </article>
+
+                <!-- CRTIC Docencia -->
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Instructora de Tecnologías Inmersivas (Meta Spark)</h3>
+                        <span class="institution">Centro para la Revolución Tecnológica (CRTIC)</span>
+                        <div class="description">
+                            <p><strong>Rol:</strong> Docente del "Programa de Formación en Meta Spark: AR Fundamentals".</p>
+                            <p><strong>Impacto:</strong> Capacitación técnica en Realidad Aumentada y diseño de filtros para Instagram, enfocada en potenciar la comunicación en industrias creativas.</p>
+                        </div>
+                    </div>
+                    <span class="date">2023</span>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 5. FORMACIÓN (Académica + Continua) -->
+        <section id="formacion">
+            <h2>Formación</h2>
+            <div class="content">
+                
+                <!-- Académica -->
+                <h3 style="margin-bottom: 15px; font-size: 0.95rem; color: #777;">ACADÉMICA</h3>
+                
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Diseñadora Gráfica (Licenciada en Diseño)</h3>
+                        <span class="institution">Universidad de Chile</span>
+                        <div class="description">Titulada con Distinción Máxima, Mención Gráfica.</div>
+                    </div>
+                    <span class="date">2016 – 2022</span>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Ingeniería Comercial (Estudios de Pregrado)</h3>
+                        <span class="institution">Universidad Técnica Federico Santa María</span>
+                        <div class="description">Formación en fundamentos de economía, administración y cálculo, aportando una base lógica a la gestión creativa.</div>
+                    </div>
+                    <span class="date">2013 – 2014</span>
+                </article>
+
+                <!-- Continua -->
+                <h3 style="margin-top: 30px; margin-bottom: 15px; font-size: 0.95rem; color: #777;">CONTINUA</h3>
+
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Programa de Formación: Unreal Engine Fundamentals</h3>
+                        <span class="institution">CRTIC</span>
+                        <div class="description">Capacitación técnica en motores de renderizado en tiempo real y entornos virtuales.</div>
+                    </div>
+                    <span class="date">2023</span>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Programa de Formación: Meta Spark AR Fundamentals</h3>
+                        <span class="institution">CRTIC</span>
+                        <div class="description">Especialización en creación de efectos y filtros de Realidad Aumentada.</div>
+                    </div>
+                    <span class="date">2023</span>
+                </article>
+
+                <article class="entry">
+                    <div class="entry-main">
+                        <h3>Gestión de Públicos y Comunidades Culturales</h3>
+                        <span class="institution">Ministerio de las Culturas (MinCAP)</span>
+                        <div class="description">Ciclo de talleres de la Escuela de Gestión de Públicos, enfocado en estrategias de desarrollo de audiencias.</div>
+                    </div>
+                    <span class="date">2022</span>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
