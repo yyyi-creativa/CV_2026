@@ -38,7 +38,7 @@
         main {
             max-width: var(--max-width);
             margin: 0 auto;
-            position: relative; /* Para el posicionamiento del botón si fuera absoluto, pero usaremos fixed */
+            position: relative; 
         }
 
         /* ENLACES */
@@ -227,51 +227,9 @@
             line-height: 1.4;
         }
 
-        /* ESTILO TOOLKIT */
-        .toolkit-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-        }
-
-        .toolkit-level {
-            margin-bottom: 10px;
-        }
-
-        .toolkit-level h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--text-color);
-        }
-
-        .toolkit-desc {
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-
-        .tool-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            list-style: none;
-            padding: 0;
-        }
-
-        .tool-items li {
-            font-size: 0.95rem;
-            color: var(--text-color);
-            background-color: #f9f9f9;
-            padding: 5px 10px;
-            border-radius: 4px;
-            border: 1px solid #eee;
-        }
-
         /* BOTÓN VOLVER AL INICIO */
         #scrollTopBtn {
-            display: none; /* Oculto por defecto */
+            display: none; 
             position: fixed;
             bottom: 30px;
             right: 30px;
@@ -283,7 +241,7 @@
             color: var(--bg-color);
             cursor: pointer;
             padding: 10px;
-            border-radius: 50%; /* Círculo */
+            border-radius: 50%;
             width: 50px;
             height: 50px;
             align-items: center;
@@ -297,7 +255,6 @@
             transform: translateY(-3px);
         }
 
-        /* Flecha simple usando CSS */
         .arrow-up {
             border: solid var(--bg-color);
             border-width: 0 2px 2px 0;
@@ -369,7 +326,6 @@
                 <nav class="nav-links">
                     <a href="#perfil">Perfil</a>
                     <a href="#competencias">Competencias</a>
-                    <a href="#toolkit">Toolkit</a>
                     <a href="#experiencia">Profesional</a>
                     <a href="#docencia">Docencia</a>
                     <a href="#formacion">Formación</a>
@@ -441,48 +397,6 @@
                             <li>Análisis Riguroso & Criterio Estético</li>
                             <li>Resolución de Problemas</li>
                             <li>Adaptabilidad & Autonomía</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- 2.5 TOOLKIT DIGITAL & SOFTWARE -->
-        <section id="toolkit">
-            <h2>Toolkit Digital & Software</h2>
-            <div class="content">
-                <div class="toolkit-grid">
-                    
-                    <div class="toolkit-level">
-                        <h3>Nivel Avanzado | Adobe Creative Suite</h3>
-                        <p class="toolkit-desc">Dominio para flujos de trabajo profesionales en diseño y postproducción.</p>
-                        <ul class="tool-items">
-                            <li>✦ Photoshop</li>
-                            <li>✦ Illustrator</li>
-                            <li>✦ InDesign</li>
-                            <li>✦ After Effects</li>
-                            <li>✦ Premiere Pro</li>
-                        </ul>
-                    </div>
-
-                    <div class="toolkit-level">
-                        <h3>Nivel Intermedio | Creación Específica</h3>
-                        <p class="toolkit-desc">Herramientas para ilustración, modelado móvil y edición ágil.</p>
-                        <ul class="tool-items">
-                            <li>✦ Canva (Presentaciones & Colaboración)</li>
-                            <li>✦ Procreate (Ilustración Digital)</li>
-                            <li>✦ Nomad Sculpt (Esculpido 3D en iPad)</li>
-                            <li>✦ CapCut (Edición Social Media)</li>
-                        </ul>
-                    </div>
-
-                    <div class="toolkit-level">
-                        <h3>Nivel Básico | Exploración & Prototipado</h3>
-                        <p class="toolkit-desc">Conocimientos funcionales para integración de nuevos medios.</p>
-                        <ul class="tool-items">
-                            <li>✦ Unreal Engine (Entornos 3D)</li>
-                            <li>✦ Figma (Diseño UI/UX)</li>
                         </ul>
                     </div>
 
@@ -570,7 +484,8 @@
                         <h3>Diseñadora Gráfica (Práctica Profesional)</h3>
                         <span class="institution">Municipalidad de Vitacura - Dir. Asesoría Urbana</span>
                         <div class="description">
-                            <p>Diseño de gráficas de difusión y creación visual de la campaña educativa sobre ciclo-inclusión: “Somos Parte”.</p>
+                            <p>Diseño de gráficas de difusión para soportes impresos y digitales.</p>
+                            <p>Creación y desarrollo visual de la campaña educativa sobre ciclo-inclusión: “Somos Parte”.</p>
                         </div>
                     </div>
                     <span class="date">2020</span>
@@ -600,12 +515,12 @@
                 <article class="entry">
                     <div class="entry-main">
                         <h3>Ayudante de Cátedra & Guía de Proyectos</h3>
-                        <span class="institution">Facultad de Arquitectura y Urbanismo (FAU) - U. de Chile</span>
+                        <span class="institution">Facultad de Arquitectura y Urbanismo (FAU) - Universidad de Chile</span>
                         <div class="description">
                             <p>Acompañamiento académico a estudiantes de ciclo avanzado (3er y 4to año) en el desarrollo de proyectos de diseño, bajo la cátedra del Prof. Rodrigo Dueñas.</p>
                             <ul>
                                 <li><strong>Cursos:</strong> Taller de Proyecto VII (Mención Visualidad y Medios) y Diseño Editorial.</li>
-                                <li><strong>Rol:</strong> Guía en procesos de investigación, conceptualización y formalización. Fomento del pensamiento crítico y la coherencia narrativa.</li>
+                                <li><strong>Rol:</strong> Guía en procesos de investigación, conceptualización y formalización de proyectos complejos. Fomento del pensamiento crítico y la coherencia entre narrativa y soporte visual.</li>
                             </ul>
                         </div>
                     </div>
@@ -648,7 +563,7 @@
                 <article class="entry">
                     <div class="entry-main">
                         <h3>Ingeniería Comercial (Estudios de Pregrado)</h3>
-                        <span class="institution">Universidad Técnica Federico Santa María</span>
+                        <span class="institution">Universidad Técnica Federico Santa María, Valparaíso</span>
                         <div class="description">Formación en fundamentos de economía, administración y cálculo, aportando una base lógica y estructurada a la gestión de proyectos creativos.</div>
                     </div>
                     <span class="date">2013 – 2014</span>
@@ -660,7 +575,7 @@
                 <article class="entry">
                     <div class="entry-main">
                         <h3>Programa de Formación: Unreal Engine Fundamentals</h3>
-                        <span class="institution">CRTIC</span>
+                        <span class="institution">Centro para la Revolución Tecnológica en Industrias Creativas (CRTIC)</span>
                         <div class="description">Capacitación técnica en motores de renderizado en tiempo real y entornos virtuales.</div>
                     </div>
                     <span class="date">2023</span>
@@ -669,7 +584,7 @@
                 <article class="entry">
                     <div class="entry-main">
                         <h3>Programa de Formación: Meta Spark AR Fundamentals</h3>
-                        <span class="institution">CRTIC</span>
+                        <span class="institution">Centro para la Revolución Tecnológica en Industrias Creativas (CRTIC)</span>
                         <div class="description">Especialización en creación de efectos y filtros de Realidad Aumentada para plataformas sociales.</div>
                     </div>
                     <span class="date">2023</span>
@@ -678,7 +593,7 @@
                 <article class="entry">
                     <div class="entry-main">
                         <h3>Gestión de Públicos y Comunidades Culturales</h3>
-                        <span class="institution">Ministerio de las Culturas (MinCAP)</span>
+                        <span class="institution">Ministerio de las Culturas, las Artes y el Patrimonio (MinCAP)</span>
                         <div class="description">Ciclo de talleres de la Escuela de Gestión de Públicos, enfocado en estrategias de desarrollo de audiencias y mediación cultural.</div>
                     </div>
                     <span class="date">2022</span>
@@ -695,24 +610,21 @@
     </button>
 
     <script>
-        // Obtener el botón
         let mybutton = document.getElementById("scrollTopBtn");
 
-        // Cuando el usuario hace scroll hacia abajo 200px desde el inicio, mostrar el botón
         window.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                mybutton.style.display = "flex"; // Mostrar como flex para centrar la flecha
+                mybutton.style.display = "flex";
             } else {
                 mybutton.style.display = "none";
             }
         }
 
-        // Cuando el usuario hace clic en el botón, volver al inicio
         function topFunction() {
-            document.body.scrollTop = 0; // Para Safari
-            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
     </script>
 
