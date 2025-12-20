@@ -13,7 +13,7 @@
 
     <style>
         :root {
-            /* Estilo Editorial / Martin Lorenz */
+            /* Estilo Editorial */
             --bg-color: #FFFFFF;
             --text-color: #111111;
             --accent-color: #555555; 
@@ -226,6 +226,49 @@
             line-height: 1.4;
         }
 
+        /* ESTILO TOOLKIT (Nuevo) */
+        .toolkit-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .toolkit-level {
+            margin-bottom: 10px;
+        }
+
+        .toolkit-level h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .toolkit-desc {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .tool-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .tool-items li {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             body { padding: 30px 25px; }
@@ -280,6 +323,7 @@
                 <nav class="nav-links">
                     <a href="#perfil">Perfil</a>
                     <a href="#competencias">Competencias</a>
+                    <a href="#toolkit">Toolkit</a>
                     <a href="#experiencia">Profesional</a>
                     <a href="#docencia">Docencia</a>
                     <a href="#formacion">Formación</a>
@@ -325,6 +369,7 @@
                             <li>Dirección de Arte & Conceptualización</li>
                             <li>Estrategia de Comunicación Visual</li>
                             <li>Coherencia Narrativa & Storytelling</li>
+                            <li>Design Thinking</li>
                         </ul>
                     </div>
                     
@@ -346,11 +391,52 @@
                     <div class="comp-category">
                         <h3>Metodología</h3>
                         <ul class="comp-list">
-                            <li>Design Thinking & Procesos Iterativos</li>  
                             <li>Visión Sistémica (Procesos completos)</li>
                             <li>Análisis Riguroso & Criterio Estético</li>
                             <li>Resolución de Problemas</li>
                             <li>Adaptabilidad & Autonomía</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 2.5 TOOLKIT DIGITAL & SOFTWARE (Nueva Sección) -->
+        <section id="toolkit">
+            <h2>Toolkit Digital & Software</h2>
+            <div class="content">
+                <div class="toolkit-grid">
+                    
+                    <div class="toolkit-level">
+                        <h3>Nivel Avanzado (Adobe Creative Suite)</h3>
+                        <p class="toolkit-desc">Dominio para flujos de trabajo profesionales en diseño y postproducción.</p>
+                        <ul class="tool-items">
+                            <li>✦ Ps Adobe Photoshop</li>
+                            <li>✦ Ai Adobe Illustrator</li>
+                            <li>✦ Id Adobe InDesign</li>
+                            <li>✦ Ae Adobe After Effects</li>
+                            <li>✦ Pr Adobe Premiere Pro</li>
+                        </ul>
+                    </div>
+
+                    <div class="toolkit-level">
+                        <h3>Nivel Intermedio (Creación Específica)</h3>
+                        <p class="toolkit-desc">Herramientas para ilustración, modelado móvil y edición ágil.</p>
+                        <ul class="tool-items">
+                            <li>✦ Canva (Presentaciones & Colaboración)</li>
+                            <li>✦ Procreate (Ilustración Digital)</li>
+                            <li>✦ Nomad Sculpt (Esculpido 3D en iPad)</li>
+                            <li>✦ CapCut (Edición Social Media)</li>
+                        </ul>
+                    </div>
+
+                    <div class="toolkit-level">
+                        <h3>Nivel Básico (Exploración & Prototipado)</h3>
+                        <p class="toolkit-desc">Conocimientos funcionales para integración de nuevos medios.</p>
+                        <ul class="tool-items">
+                            <li>✦ Unreal Engine (Entornos 3D)</li>
+                            <li>✦ Figma (Diseño UI/UX)</li>
                         </ul>
                     </div>
 
@@ -471,8 +557,10 @@
                         <span class="institution">Facultad de Arquitectura y Urbanismo (FAU) - U. de Chile</span>
                         <div class="description">
                             <p>Acompañamiento académico a estudiantes de ciclo avanzado (3er y 4to año) en el desarrollo de proyectos de diseño, bajo la cátedra del Prof. Rodrigo Dueñas.</p>
-                            <p><strong>Cursos:</strong> Taller de Proyecto VII (Mención Visualidad y Medios) y Diseño Editorial.</p>
-                            <p><strong>Rol:</strong> Guía en procesos de investigación, conceptualización y formalización. Fomento del pensamiento crítico y la coherencia narrativa.</p>
+                            <ul>
+                                <li><strong>Cursos:</strong> Taller de Proyecto VII (Mención Visualidad y Medios) y Diseño Editorial.</li>
+                                <li><strong>Rol:</strong> Guía en procesos de investigación, conceptualización y formalización. Fomento del pensamiento crítico y la coherencia narrativa.</li>
+                            </ul>
                         </div>
                     </div>
                     <span class="date">2023 – 2025</span>
@@ -482,10 +570,10 @@
                 <article class="entry">
                     <div class="entry-main">
                         <h3>Instructora de Tecnologías Inmersivas (Meta Spark)</h3>
-                        <span class="institution">Centro para la Revolución Tecnológica (CRTIC)</span>
+                        <span class="institution">Centro para la Revolución Tecnológica en Industrias Creativas (CRTIC)</span>
                         <div class="description">
                             <p><strong>Rol:</strong> Docente del "Programa de Formación en Meta Spark: AR Fundamentals".</p>
-                            <p><strong>Impacto:</strong> Capacitación técnica en Realidad Aumentada y diseño de filtros para Instagram, enfocada en potenciar la comunicación en industrias creativas.</p>
+                            <p><strong>Impacto:</strong> Capacitación técnica en Realidad Aumentada y diseño de filtros para Instagram, enfocada en la aplicación de nuevas herramientas digitales para potenciar la comunicación en industrias creativas.</p>
                         </div>
                     </div>
                     <span class="date">2023</span>
@@ -515,7 +603,7 @@
                     <div class="entry-main">
                         <h3>Ingeniería Comercial (Estudios de Pregrado)</h3>
                         <span class="institution">Universidad Técnica Federico Santa María</span>
-                        <div class="description">Formación en fundamentos de economía, administración y cálculo, aportando una base lógica a la gestión creativa.</div>
+                        <div class="description">Formación en fundamentos de economía, administración y cálculo, aportando una base lógica y estructurada a la gestión de proyectos creativos.</div>
                     </div>
                     <span class="date">2013 – 2014</span>
                 </article>
@@ -536,7 +624,7 @@
                     <div class="entry-main">
                         <h3>Programa de Formación: Meta Spark AR Fundamentals</h3>
                         <span class="institution">CRTIC</span>
-                        <div class="description">Especialización en creación de efectos y filtros de Realidad Aumentada.</div>
+                        <div class="description">Especialización en creación de efectos y filtros de Realidad Aumentada para plataformas sociales.</div>
                     </div>
                     <span class="date">2023</span>
                 </article>
@@ -545,7 +633,7 @@
                     <div class="entry-main">
                         <h3>Gestión de Públicos y Comunidades Culturales</h3>
                         <span class="institution">Ministerio de las Culturas (MinCAP)</span>
-                        <div class="description">Ciclo de talleres de la Escuela de Gestión de Públicos, enfocado en estrategias de desarrollo de audiencias.</div>
+                        <div class="description">Ciclo de talleres de la Escuela de Gestión de Públicos, enfocado en estrategias de desarrollo de audiencias y mediación cultural.</div>
                     </div>
                     <span class="date">2022</span>
                 </article>
