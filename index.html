@@ -13,7 +13,7 @@
 
     <style>
         :root {
-            /* Estilo Editorial */
+            /* Estilo Editorial / Martin Lorenz */
             --bg-color: #FFFFFF;
             --text-color: #111111;
             --accent-color: #555555; 
@@ -38,6 +38,7 @@
         main {
             max-width: var(--max-width);
             margin: 0 auto;
+            position: relative; /* Para el posicionamiento del botón si fuera absoluto, pero usaremos fixed */
         }
 
         /* ENLACES */
@@ -196,7 +197,7 @@
             color: var(--accent-color);
         }
 
-        /* ESTILO COMPETENCIAS CLAVE (Nuevo) */
+        /* ESTILO COMPETENCIAS CLAVE */
         .competencies-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -226,7 +227,7 @@
             line-height: 1.4;
         }
 
-        /* ESTILO TOOLKIT (Nuevo) */
+        /* ESTILO TOOLKIT */
         .toolkit-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -246,10 +247,9 @@
 
         .toolkit-desc {
             font-size: 0.9rem;
-            font-weight: 400;
             color: var(--accent-color);
             margin-bottom: 10px;
-            display: block;
+            font-style: italic;
         }
 
         .tool-items {
@@ -269,6 +269,43 @@
             border: 1px solid #eee;
         }
 
+        /* BOTÓN VOLVER AL INICIO */
+        #scrollTopBtn {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            font-size: 1.2rem;
+            border: none;
+            outline: none;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%; /* Círculo */
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #333;
+            transform: translateY(-3px);
+        }
+
+        /* Flecha simple usando CSS */
+        .arrow-up {
+            border: solid var(--bg-color);
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 4px;
+            transform: rotate(-135deg);
+            margin-top: 4px;
+        }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
@@ -307,6 +344,14 @@
             .bio-text p { font-size: 1.1rem; }
             .header-meta { flex-direction: column; gap: 20px; }
             .competencies-grid { grid-template-columns: 1fr; gap: 30px; }
+            
+            #scrollTopBtn {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+            .arrow-up { padding: 3px; margin-top: 3px; }
         }
     </style>
 </head>
@@ -315,7 +360,7 @@
     <main>
         
         <!-- HEADER -->
-        <header>
+        <header id="top">
             <h1>Yi Saint-Jour</h1>
             <div class="role">Creative Project Lead | Diseño 360°</div>
             
@@ -403,7 +448,7 @@
             </div>
         </section>
 
-        <!-- 2.5 TOOLKIT DIGITAL & SOFTWARE (Nueva Sección) -->
+        <!-- 2.5 TOOLKIT DIGITAL & SOFTWARE -->
         <section id="toolkit">
             <h2>Toolkit Digital & Software</h2>
             <div class="content">
@@ -492,7 +537,7 @@
                     <span class="date">Jun 2019 – Presente</span>
                 </article>
 
-                <!-- PROYECTOS DESTACADOS (Subtítulo visual) -->
+                <!-- PROYECTOS DESTACADOS -->
                 <h3 style="margin-top: 20px; font-size: 0.9rem; text-transform: uppercase; color: #555; border-bottom: 1px solid #eee; padding-bottom: 5px;">Proyectos Destacados & Innovación</h3>
 
                 <!-- CRTIC AR -->
@@ -522,7 +567,7 @@
                 <!-- Vitacura -->
                 <article class="entry">
                     <div class="entry-main">
-                        <h3>Diseñadora Gráfica | Práctica Profesional</h3>
+                        <h3>Diseñadora Gráfica (Práctica Profesional)</h3>
                         <span class="institution">Municipalidad de Vitacura - Dir. Asesoría Urbana</span>
                         <div class="description">
                             <p>Diseño de gráficas de difusión y creación visual de la campaña educativa sobre ciclo-inclusión: “Somos Parte”.</p>
@@ -573,10 +618,8 @@
                         <h3>Instructora de Tecnologías Inmersivas (Meta Spark)</h3>
                         <span class="institution">Centro para la Revolución Tecnológica en Industrias Creativas (CRTIC)</span>
                         <div class="description">
-                            <ul>
-                                <li><strong>Rol:</strong> Docente del "Programa de Formación en Meta Spark: AR Fundamentals".</li>
-                                <li><strong>Impacto:</strong> Capacitación técnica en Realidad Aumentada y diseño de filtros para Instagram, enfocada en la aplicación de nuevas herramientas digitales para potenciar la comunicación en industrias creativas.</li>
-                            </ul>
+                            <p><strong>Rol:</strong> Docente del "Programa de Formación en Meta Spark: AR Fundamentals".</p>
+                            <p><strong>Impacto:</strong> Capacitación técnica en Realidad Aumentada y diseño de filtros para Instagram, enfocada en la aplicación de nuevas herramientas digitales para potenciar la comunicación en industrias creativas.</p>
                         </div>
                     </div>
                     <span class="date">2023</span>
@@ -595,7 +638,7 @@
                 
                 <article class="entry">
                     <div class="entry-main">
-                        <h3>Diseñadora Gráfica | Licenciada en Diseño</h3>
+                        <h3>Diseñadora Gráfica (Licenciada en Diseño)</h3>
                         <span class="institution">Universidad de Chile</span>
                         <div class="description">Titulada con Distinción Máxima, Mención Gráfica.</div>
                     </div>
@@ -604,7 +647,7 @@
 
                 <article class="entry">
                     <div class="entry-main">
-                        <h3>Ingeniería Comercial | Estudios de Pregrado</h3>
+                        <h3>Ingeniería Comercial (Estudios de Pregrado)</h3>
                         <span class="institution">Universidad Técnica Federico Santa María</span>
                         <div class="description">Formación en fundamentos de economía, administración y cálculo, aportando una base lógica y estructurada a la gestión de proyectos creativos.</div>
                     </div>
@@ -645,6 +688,33 @@
         </section>
 
     </main>
+
+    <!-- Botón Volver Arriba -->
+    <button onclick="topFunction()" id="scrollTopBtn" title="Volver al inicio">
+        <i class="arrow-up"></i>
+    </button>
+
+    <script>
+        // Obtener el botón
+        let mybutton = document.getElementById("scrollTopBtn");
+
+        // Cuando el usuario hace scroll hacia abajo 200px desde el inicio, mostrar el botón
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                mybutton.style.display = "flex"; // Mostrar como flex para centrar la flecha
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // Cuando el usuario hace clic en el botón, volver al inicio
+        function topFunction() {
+            document.body.scrollTop = 0; // Para Safari
+            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+        }
+    </script>
 
 </body>
 </html>
