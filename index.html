@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CV de Yi Saint-Jour. Creative Project Lead y Diseñadora Multidisciplinaria con visión 360°. Gestión estratégica y ejecución técnica.">
-    <title>CV - Yi Saint-Jour</title>
+    <title>CV - Yi Saint-Jour | 2026</title>
     
-    <!-- Tipografía: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -17,9 +16,11 @@
             --bg-color: #FFFFFF;
             --text-color: #111111;
             --accent-color: #555555; 
-            --line-color: #000000; /* Líneas negras sólidas */
+            --line-color: #000000;
+            --sidebar-bg: #fafafa;
+            --sidebar-border: #eee;
             --font-main: 'Inter', Helvetica, Arial, sans-serif;
-            --max-width: 900px;
+            --sidebar-width: 250px;
         }
 
         /* RESET */
@@ -32,30 +33,69 @@
             font-family: var(--font-main);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
-            padding: 40px 20px;
+            margin: 0;
+            display: flex; /* Layout Flex para Sidebar + Main */
         }
 
-        main {
-            max-width: var(--max-width);
-            margin: 0 auto;
+        /* --- 1. BARRA LATERAL (SIDEBAR) --- */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            background-color: var(--sidebar-bg); 
+            border-right: 1px solid var(--sidebar-border);
+            padding: 60px 30px; /* Un poco más de aire arriba */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-shrink: 0;
+            z-index: 10;
         }
 
-        /* ENLACES */
-        a {
-            color: var(--text-color);
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item { margin-bottom: 18px; }
+
+        .nav-link {
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-bottom 0.2s, color 0.2s;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: block;
+            border-left: 2px solid transparent;
+            padding-left: 12px;
+            font-weight: 400;
         }
-        a:hover {
-            border-bottom: 1px solid var(--text-color);
+
+        .nav-link:hover {
             color: #000;
+            padding-left: 18px;
+        }
+
+        /* Estado Activo (JS) */
+        .nav-link.active {
+            color: #000;
+            border-left: 2px solid #000; /* Línea negra sólida editorial */
+            padding-left: 18px;
+            font-weight: 600;
+        }
+
+        /* --- 2. CONTENIDO PRINCIPAL --- */
+        main {
+            flex: 1;
+            max-width: 900px; 
+            margin: 0 auto;
+            padding: 80px 60px; /* Ajuste de padding */
+            position: relative; 
         }
 
         /* HEADER */
-        header {
-            margin-bottom: 60px;
-        }
+        header { margin-bottom: 60px; }
 
         h1 {
             font-size: 3rem;
@@ -73,7 +113,7 @@
             margin-bottom: 30px;
         }
 
-        /* META DATA (Nav + Contacto) */
+        /* META DATA */
         .header-meta {
             display: flex;
             justify-content: space-between;
@@ -84,17 +124,8 @@
             border-top: 2px solid var(--line-color);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .nav-links a { 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            font-size: 0.85rem; 
-            color: var(--text-color); 
-        }
+        /* Navegación móvil (oculta en desktop por defecto) */
+        .mobile-nav { display: none; }
 
         .contact-links {
             display: flex;
@@ -102,22 +133,26 @@
             color: var(--accent-color);
             flex-wrap: wrap;
         }
-        .contact-links a { color: var(--text-color); }
-
         
+        /* Enlaces generales */
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .contact-links a:hover { text-decoration: underline; color: #000; }
 
         /* SECCIONES */
         section {
-            padding-top: 30px;
-            margin-bottom: 60px;
-            border-top: 1px solid var(--line-color);
+            padding-top: 40px;
+            margin-bottom: 80px;
+            border-top: 1px solid #eee; /* Separador sutil */
             scroll-margin-top: 40px;
             display: grid;
             grid-template-columns: 200px 1fr;
             gap: 40px;
         }
 
-        /* Títulos de Sección */
         h2 {
             font-size: 0.9rem;
             font-weight: 600;
@@ -125,7 +160,8 @@
             letter-spacing: 0.05em;
             margin: 0;
             position: sticky;
-            top: 20px;
+            top: 40px; /* Se pega un poco más abajo del borde */
+            height: fit-content;
         }
 
         h2::before {
@@ -133,31 +169,28 @@
             color: var(--text-color);
         }
 
-        /* Contenido */
         .content {
             display: flex;
             flex-direction: column;
             gap: 40px;
         }
 
-        /* ESTILO PERFIL */
+        /* TEXTOS & PERFIL */
         .bio-text p {
             font-size: 1.25rem;
             font-weight: 400;
-            line-height: 1.5;
+            line-height: 1.6;
             margin-bottom: 1.5rem;
-            max-width: 95%;
+            color: #333;
         }
-        .bio-text p:last-child { margin-bottom: 0; }
-        
         .highlight {
             font-weight: 500;
             color: #000;
-            padding-left: 15px;
+            padding-left: 20px;
             border-left: 3px solid var(--line-color);
         }
 
-        /* ESTILO ENTRADAS */
+        /* ENTRADAS (Experiencia / Formación) */
         .entry {
             display: grid;
             grid-template-columns: 1fr 140px;
@@ -180,13 +213,12 @@
 
         .description {
             font-size: 0.95rem;
-            color: #333;
-            max-width: 95%;
+            color: #444;
             margin-top: 10px;
+            line-height: 1.5;
         }
         
-        .description p { margin-bottom: 0.5rem; }
-        .description ul { padding-left: 20px; margin-bottom: 10px; }
+        .description ul { padding-left: 18px; margin-top: 8px; }
         .description li { margin-bottom: 5px; }
 
         .date {
@@ -194,11 +226,11 @@
             font-size: 0.85rem;
             font-weight: 500;
             font-feature-settings: "tnum";
-            white-space: pre-line; 
             color: var(--accent-color);
+            white-space: pre-line; 
         }
 
-        /* ESTILO COMPETENCIAS CLAVE (Nuevo) */
+        /* COMPETENCIAS GRID */
         .competencies-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -206,160 +238,60 @@
         }
         
         .comp-category h3 {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             color: var(--accent-color);
             margin-bottom: 15px;
             font-weight: 600;
             border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
+            padding-bottom: 8px;
         }
 
-        .comp-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
+        .comp-list { list-style: none; padding: 0; }
         .comp-list li {
             font-size: 0.95rem;
             margin-bottom: 8px;
-            color: var(--text-color);
-            line-height: 1.4;
+            color: #222;
         }
 
-        /* ESTILO TOOLKIT (Nuevo) */
+        /* TOOLKIT GRID */
         .toolkit-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 30px;
         }
 
-        .toolkit-level {
-            margin-bottom: 10px;
-        }
-
         .toolkit-level h3 {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 5px;
-            color: var(--text-color);
         }
 
         .toolkit-desc {
             font-size: 0.9rem;
-            font-weight: 400;
             color: var(--accent-color);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: block;
         }
 
         .tool-items {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 10px;
             list-style: none;
             padding: 0;
         }
 
         .tool-items li {
-            font-size: 0.95rem;
-            color: var(--text-color);
-            background-color: #f9f9f9;
-            padding: 5px 10px;
+            font-size: 0.9rem;
+            color: #333;
+            background-color: #f4f4f4;
+            padding: 6px 12px;
             border-radius: 4px;
             border: 1px solid #eee;
         }
 
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            body { padding: 30px 25px; }
-            h1 { font-size: 2.2rem; }
-            
-            section {
-                grid-template-columns: 1fr;
-                gap: 25px;
-                padding-top: 25px;
-                margin-bottom: 50px;
-            }
-
-            h2 {
-                position: static;
-                padding-bottom: 10px;
-                border-bottom: 1px solid #eee;
-                margin-bottom: 10px;
-                color: var(--text-color);
-            }
-
-            .entry {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-
-            .entry-main { order: 2; }
-            .date { 
-                order: 1; 
-                text-align: left; 
-                margin-bottom: 5px; 
-                font-size: 0.8rem;
-                opacity: 0.8;
-            }
-
-            .bio-text p { font-size: 1.1rem; }
-            .header-meta { flex-direction: column; gap: 20px; }
-            .competencies-grid { grid-template-columns: 1fr; gap: 30px; }
-        }
-            /* BOTÓN VOLVER AL INICIO (SCROLL TOP) */
-        #scrollTopBtn {
-            display: none; /* Oculto por defecto */
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 99; /* Asegura que flote sobre todo */
-            border: none;
-            outline: none;
-            background-color: var(--text-color); /* Usa tu variable de color negro/texto */
-            cursor: pointer;
-            padding: 0;
-            border-radius: 50%; /* Círculo perfecto */
-            width: 50px;
-            height: 50px;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Sombra suave */
-            transition: transform 0.3s ease, background-color 0.2s ease;
-        }
-
-        #scrollTopBtn:hover {
-            background-color: #333; /* Un gris muy oscuro al pasar el mouse */
-            transform: translateY(-3px); /* Pequeño salto al hover */
-        }
-        
-        /* Flecha minimalista hecha con CSS puro */
-        .arrow-up {
-            border: solid #FFFFFF; /* Color blanco para la flecha */
-            border-width: 0 2px 2px 0;
-            display: inline-block;
-            padding: 5px;
-            transform: rotate(-135deg); /* Rotar para que apunte arriba */
-            margin-top: 6px; /* Ajuste óptico para centrar visualmente */
-        }
-        
-        /* AJUSTE PARA MÓVIL */
-        @media (max-width: 768px) {
-            #scrollTopBtn {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
-            .arrow-up {
-                padding: 4px;
-                margin-top: 4px;
-            }
-        }
-       /* FOOTER */
+        /* FOOTER */
         footer {
             margin-top: 100px;
             padding-top: 40px;
@@ -371,49 +303,151 @@
 
         .ai-credit {
             font-size: 0.8rem;
-            opacity: 0.5;
-            margin-top: 30px;
+            opacity: 0.6;
+            margin-top: 20px;
+        }
+
+        /* --- BOTÓN VOLVER ARRIBA --- */
+        #scrollTopBtn {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--text-color); /* Negro */
+            color: white;
+            cursor: pointer;
+            padding: 0;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, background-color 0.2s ease;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #333;
+            transform: translateY(-5px);
         }
         
+        .arrow-up {
+            border: solid #FFFFFF;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 5px;
+            transform: rotate(-135deg);
+            margin-top: 6px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            body { 
+                display: block; /* Quitamos flex para apilar */
+                padding: 0;
+            }
+
+            /* Ocultamos Sidebar en móvil */
+            .sidebar { display: none; }
+
+            /* Mostramos navegación interna en header (Backup) */
+            .mobile-nav {
+                display: flex;
+                gap: 15px;
+                flex-wrap: wrap;
+                margin-top: 20px;
+                width: 100%;
+            }
+            .mobile-nav a {
+                font-size: 0.85rem;
+                text-transform: uppercase;
+                font-weight: 600;
+                border-bottom: 1px solid transparent;
+            }
+
+            main { padding: 40px 25px; }
+
+            h1 { font-size: 2.5rem; }
+
+            section {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding-top: 25px;
+                margin-bottom: 50px;
+            }
+
+            h2 {
+                position: static;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #eee;
+                margin-bottom: 20px;
+            }
+
+            .entry {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+            .entry-main { order: 2; }
+            .date { 
+                order: 1; 
+                text-align: left; 
+                opacity: 0.8;
+                margin-bottom: 5px;
+            }
+
+            .header-meta { gap: 15px; }
+            
+            #scrollTopBtn {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
     </style>
 </head>
 <body>
 
-
-
+    <nav class="sidebar">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#perfil" class="nav-link">Perfil</a></li>
+            <li class="nav-item"><a href="#competencias" class="nav-link">Competencias</a></li>
+            <li class="nav-item"><a href="#toolkit" class="nav-link">Toolkit</a></li>
+            <li class="nav-item"><a href="#experiencia" class="nav-link">Profesional</a></li>
+            <li class="nav-item"><a href="#docencia" class="nav-link">Docencia</a></li>
+            <li class="nav-item"><a href="#formacion" class="nav-link">Formación</a></li>
+            <li class="nav-item"><a href="#footer" class="nav-link">Contacto</a></li>
+        </ul>
+    </nav>
     
     <main>
         
-        <!-- HEADER -->
         <header>
             <h1>Yi Saint-Jour</h1>
             <div class="role">Creative Project Lead | Diseño 360°</div>
             
             <div class="header-meta">
                 
-                <!-- Navegación interna -->
-                <nav class="nav-links">
-                    <a href="#perfil">Perfil</a>
-                    <a href="#competencias">Competencias</a>
-                    <a href="#toolkit">Toolkit</a>
-                    <a href="#experiencia">Profesional</a>
-                    <a href="#docencia">Docencia</a>
-                    <a href="#formacion">Formación</a>
-                </nav>
-
-
-                <!-- Contacto -->
                 <div class="contact-links">
                     <a href="mailto:yi.creativa@gmail.com">yi.creativa@gmail.com</a>
                     <a href="https://www.linkedin.com/in/yyyi" target="_blank">LinkedIn</a>
                     <a href="https://www.behance.net/yyyi" target="_blank">Portafolio</a>
                     <a href="https://yyyi-creativa.github.io/exploracion_IA/" target="_blank">Exploración IA</a>
-                    <span>Santiago, Chile</span>
                 </div>
+
+                <nav class="mobile-nav">
+                    <a href="#perfil">Perfil</a>
+                    <a href="#competencias">Skills</a>
+                    <a href="#experiencia">Exp</a>
+                    <a href="#footer">Contacto</a>
+                </nav>
+
             </div>
         </header>
 
-        <!-- 1. PERFIL -->
         <section id="perfil">
             <h2>Perfil</h2>
             <div class="content bio-text">
@@ -429,13 +463,11 @@
             </div>
         </section>
 
-        <!-- 2. COMPETENCIAS CLAVE -->
         <section id="competencias">
             <h2>Competencias Clave</h2>
             <div class="content">
                 <div class="competencies-grid">
                     
-                    <!-- Columna 1 -->
                     <div class="comp-category">
                         <h3>Gestión & Estrategia</h3>
                         <ul class="comp-list">
@@ -446,21 +478,19 @@
                         </ul>
                     </div>
                     
-                    <!-- Columna 2 -->
                     <div class="comp-category">
                         <h3>Dominio Técnico & Creativo</h3>
                         <ul class="comp-list">
                             <li>Branding e Identidad Visual</li>
                             <li>Diseño Digital & Social Media</li>
-                            <li>Diseño Multimedia (Video/Audio/Interactividad)</li>
+                            <li>Diseño Multimedia (Video/Audio)</li>
                             <li>Motion Graphics & Animación</li>
-                            <li>Herramientas de IA</li>
+                            <li>Herramientas de IA Generativa</li>
                             <li>Fotografía & Retoque Digital</li>
                             <li>Ilustración 2D y 3D</li>
                         </ul>
                     </div>
 
-                    <!-- Columna 3 -->
                     <div class="comp-category">
                         <h3>Metodología</h3>
                         <ul class="comp-list">
@@ -476,7 +506,6 @@
             </div>
         </section>
 
-        <!-- 2.5 TOOLKIT DIGITAL & SOFTWARE (Nueva Sección) -->
         <section id="toolkit">
             <h2>Toolkit Digital & Software</h2>
             <div class="content">
@@ -484,7 +513,7 @@
                     
                     <div class="toolkit-level">
                         <h3>Nivel Avanzado | Adobe Creative Suite</h3>
-                        <p class="toolkit-desc">Dominio para flujos de trabajo profesionales en diseño y postproducción.</p>
+                        <span class="toolkit-desc">Dominio para flujos de trabajo profesionales en diseño y postproducción.</span>
                         <ul class="tool-items">
                             <li>✦ Photoshop</li>
                             <li>✦ Illustrator</li>
@@ -496,18 +525,18 @@
 
                     <div class="toolkit-level">
                         <h3>Nivel Intermedio | Creación Específica</h3>
-                        <p class="toolkit-desc">Herramientas para ilustración, modelado móvil y edición ágil.</p>
+                        <span class="toolkit-desc">Herramientas para ilustración, modelado móvil y edición ágil.</span>
                         <ul class="tool-items">
-                            <li>✦ Canva (Presentaciones & Colaboración)</li>
-                            <li>✦ Procreate (Ilustración Digital)</li>
-                            <li>✦ Nomad Sculpt (Esculpido 3D en iPad)</li>
-                            <li>✦ CapCut (Edición Social Media)</li>
+                            <li>✦ Canva (Presentaciones)</li>
+                            <li>✦ Procreate (Ilustración)</li>
+                            <li>✦ Nomad Sculpt (3D iPad)</li>
+                            <li>✦ CapCut (Social Media)</li>
                         </ul>
                     </div>
 
                     <div class="toolkit-level">
                         <h3>Nivel Básico | Exploración & Prototipado</h3>
-                        <p class="toolkit-desc">Conocimientos funcionales para integración de nuevos medios.</p>
+                        <span class="toolkit-desc">Conocimientos funcionales para integración de nuevos medios.</span>
                         <ul class="tool-items">
                             <li>✦ Unreal Engine (Entornos 3D)</li>
                             <li>✦ Figma (Diseño UI/UX)</li>
@@ -518,12 +547,10 @@
             </div>
         </section>
 
-        <!-- 3. EXPERIENCIA PROFESIONAL -->
         <section id="experiencia">
             <h2>Experiencia Profesional</h2>
             <div class="content">
                 
-                <!-- SDE -->
                 <article class="entry">
                     <div class="entry-main">
                         <h3>Design Project Manager</h3>
@@ -538,7 +565,6 @@
                     <span class="date">Jun 2025 – Presente</span>
                 </article>
 
-                <!-- Urimusic -->
                 <article class="entry">
                     <div class="entry-main">
                         <h3>Lead Designer & Coordinadora Visual (Giras LATAM)</h3>
@@ -546,31 +572,28 @@
                         <div class="description">
                             <p>Liderazgo integral de campañas visuales y experiencias para giras de artistas de K-pop en Chile, Brasil, México y Perú.</p>
                             <ul>
-                                <li><strong>Eventos:</strong> Fanmeetings 'IN LOVE' (Hwang In Youp) y 'OUR TIME' (Jung Hae In); Conciertos 'Luck Inside 7 Doors' (Dreamcatcher) y 'About Damn Time' (pH-1).</li>
-                                <li><strong>Diseño 360°:</strong> Desarrollo de ecosistemas completos: campañas digitales, assets para ticketeras, gran formato, señalética y diseño de merchandising oficial.</li>
-                                <li><strong>Coordinación Internacional:</strong> Adaptación de normativas gráficas por país, garantizando coherencia estética y estándares de calidad global.</li>
+                                <li><strong>Eventos:</strong> Fanmeetings 'IN LOVE' (Hwang In Youp) y 'OUR TIME' (Jung Hae In); Conciertos Dreamcatcher y pH-1.</li>
+                                <li><strong>Diseño 360°:</strong> Desarrollo de ecosistemas completos: campañas digitales, assets para ticketeras, gran formato, señalética y merch oficial.</li>
+                                <li><strong>Coordinación Internacional:</strong> Adaptación de normativas gráficas por país.</li>
                             </ul>
                         </div>
                     </div>
                     <span class="date">Abr 2023 – Mar 2025</span>
                 </article>
 
-                <!-- Independiente -->
                 <article class="entry">
                     <div class="entry-main">
                         <h3>Consultora Creativa & Diseñadora Multidisciplinar</h3>
                         <span class="institution">Profesional Independiente</span>
                         <div class="description">
-                            <p>Gestión autónoma de identidad visual y contenido para el sector cultural y musical. Desarrollo multidisciplinario (foto, video, ilustración 2D/3D) adaptable a diversas plataformas.</p>
+                            <p>Gestión autónoma de identidad visual y contenido para el sector cultural y musical. Desarrollo multidisciplinario (foto, video, ilustración 2D/3D).</p>
                         </div>
                     </div>
                     <span class="date">Jun 2019 – Presente</span>
                 </article>
 
-                <!-- PROYECTOS DESTACADOS (Subtítulo visual) -->
                 <h3 style="margin-top: 20px; font-size: 0.9rem; text-transform: uppercase; color: #555; border-bottom: 1px solid #eee; padding-bottom: 5px;">Proyectos Destacados & Innovación</h3>
 
-                <!-- CRTIC AR -->
                 <article class="entry">
                     <div class="entry-main">
                         <h3>Diseñadora AR (Realidad Aumentada)</h3>
@@ -581,43 +604,13 @@
                     </div>
                     <span class="date">Dic 2023 – Ene 2024</span>
                 </article>
-
-                <!-- Cherry Pop -->
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Realizadora Audiovisual & Contenido</h3>
-                        <span class="institution">Cherry Pop / All Dance Int.</span>
-                        <div class="description">
-                            <p>Producción de contenido dinámico para redes sociales y cobertura de eventos en vivo.</p>
-                        </div>
-                    </div>
-                    <span class="date">2021 – 2024</span>
-                </article>
-
-                <!-- Vitacura -->
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Diseñadora Gráfica | Práctica Profesional</h3>
-                        <span class="institution">Municipalidad de Vitacura - Dir. Asesoría Urbana</span>
-                        <div class="description">
-                            <p>Diseño de gráficas de difusión y creación visual de la campaña educativa sobre ciclo-inclusión: “Somos Parte”.</p>
-                        </div>
-                    </div>
-                    <span class="date">2020</span>
-                </article>
-
-                <!-- NoiX -->
+                
                 <article class="entry">
                     <div class="entry-main">
                         <h3>Staff de Producción & Montaje</h3>
-                        <span class="institution">Urimusic Entertainment / NoiX Entertainment</span>
+                        <span class="institution">Urimusic / NoiX Entertainment / Feria IMPRESIONANTE</span>
                         <div class="description">
-                            <p>Soporte logístico y operativo en eventos masivos ('Music Bank Chile', 'NCT 127', 'IN LOVE'), asegurando el correcto flujo de la experiencia en el recinto.</p>
-                        </div>
-                        <br>
-                        <span class="institution">Feria IMPRESIONANTE - Museo de Arte Contemporáneo (MAC)</span>
-                        <div class="description">
-                            <p>Staff de apoyo en montaje de obras y atención al público para el encuentro de arte impreso y publicación independiente.</p>
+                            <p>Soporte logístico y operativo en eventos masivos y ferias de arte. Aseguramiento de flujo de experiencia y montaje.</p>
                         </div>
                     </div>
                     <span class="date">2017 – 2024</span>
@@ -626,37 +619,27 @@
             </div>
         </section>
 
-        <!-- 4. DOCENCIA & ACADEMIA -->
         <section id="docencia">
             <h2>Docencia & Academia</h2>
             <div class="content">
                 
-                <!-- FAU -->
                 <article class="entry">
                     <div class="entry-main">
                         <h3>Ayudante de Cátedra & Guía de Proyectos</h3>
                         <span class="institution">Facultad de Arquitectura y Urbanismo (FAU) - U. de Chile</span>
                         <div class="description">
-                            <p>Acompañamiento académico a estudiantes de ciclo avanzado (3er y 4to año) en el desarrollo de proyectos de diseño, bajo la cátedra del Prof. Rodrigo Dueñas.</p>
-                            <ul>
-                                <li><strong>Cursos:</strong> Taller de Proyecto VII (Mención Visualidad y Medios) y Diseño Editorial.</li>
-                                <li><strong>Rol:</strong> Guía en procesos de investigación, conceptualización y formalización. Fomento del pensamiento crítico y la coherencia narrativa.</li>
-                            </ul>
+                            <p>Acompañamiento académico a estudiantes de ciclo avanzado en proyectos de diseño, bajo la cátedra del Prof. Rodrigo Dueñas.</p>
                         </div>
                     </div>
                     <span class="date">2023 – 2025</span>
                 </article>
 
-                <!-- CRTIC Docencia -->
                 <article class="entry">
                     <div class="entry-main">
                         <h3>Instructora de Tecnologías Inmersivas (Meta Spark)</h3>
-                        <span class="institution">Centro para la Revolución Tecnológica en Industrias Creativas (CRTIC)</span>
+                        <span class="institution">CRTIC</span>
                         <div class="description">
-                            <ul>
-                                <li><strong>Rol:</strong> Docente del "Programa de Formación en Meta Spark: AR Fundamentals".</li>
-                                <li><strong>Impacto:</strong> Capacitación técnica en Realidad Aumentada y diseño de filtros para Instagram, enfocada en la aplicación de nuevas herramientas digitales para potenciar la comunicación en industrias creativas.</li>
-                            </ul>
+                            <p>Docente del "Programa de Formación en Meta Spark: AR Fundamentals". Capacitación técnica en Realidad Aumentada para industrias creativas.</p>
                         </div>
                     </div>
                     <span class="date">2023</span>
@@ -665,12 +648,10 @@
             </div>
         </section>
 
-        <!-- 5. FORMACIÓN (Académica + Continua) -->
         <section id="formacion">
             <h2>Formación</h2>
             <div class="content">
                 
-                <!-- Académica -->
                 <h3 style="margin-bottom: 15px; font-size: 0.95rem; color: #777;">ACADÉMICA</h3>
                 
                 <article class="entry">
@@ -686,28 +667,17 @@
                     <div class="entry-main">
                         <h3>Ingeniería Comercial | Estudios de Pregrado</h3>
                         <span class="institution">Universidad Técnica Federico Santa María</span>
-                        <div class="description">Formación en fundamentos de economía, administración y cálculo, aportando una base lógica y estructurada a la gestión de proyectos creativos.</div>
+                        <div class="description">Formación en fundamentos de economía y administración.</div>
                     </div>
                     <span class="date">2013 – 2014</span>
                 </article>
 
-                <!-- Continua -->
                 <h3 style="margin-top: 30px; margin-bottom: 15px; font-size: 0.95rem; color: #777;">CONTINUA</h3>
 
                 <article class="entry">
                     <div class="entry-main">
-                        <h3>Programa de Formación: Unreal Engine Fundamentals</h3>
-                        <span class="institution">CRTIC</span>
-                        <div class="description">Capacitación técnica en motores de renderizado en tiempo real y entornos virtuales.</div>
-                    </div>
-                    <span class="date">2023</span>
-                </article>
-
-                <article class="entry">
-                    <div class="entry-main">
-                        <h3>Programa de Formación: Meta Spark AR Fundamentals</h3>
-                        <span class="institution">CRTIC</span>
-                        <div class="description">Especialización en creación de efectos y filtros de Realidad Aumentada para plataformas sociales.</div>
+                        <h3>Unreal Engine Fundamentals & Meta Spark AR</h3>
+                        <span class="institution">Certificaciones CRTIC</span>
                     </div>
                     <span class="date">2023</span>
                 </article>
@@ -716,7 +686,6 @@
                     <div class="entry-main">
                         <h3>Gestión de Públicos y Comunidades Culturales</h3>
                         <span class="institution">Ministerio de las Culturas (MinCAP)</span>
-                        <div class="description">Ciclo de talleres de la Escuela de Gestión de Públicos, enfocado en estrategias de desarrollo de audiencias y mediación cultural.</div>
                     </div>
                     <span class="date">2022</span>
                 </article>
@@ -724,48 +693,62 @@
             </div>
         </section>
 
-        <!-- FOOTER -->
         <footer id="footer">
-        
             <div class="ai-credit">
                 Sitio desarrollado x Yi con asistencia de IA. 2026
             </div>
         </footer>
 
-        
     </main>
-   <script>
-     
-<!-- Botón Volver Arriba -->
-<button onclick="topFunction()" id="scrollTopBtn" title="Volver al inicio" aria-label="Volver arriba">
-    <span class="arrow-up"></span>
-</button>
 
-<script>
-    // Obtener el botón
-    let mybutton = document.getElementById("scrollTopBtn");
+    <button onclick="topFunction()" id="scrollTopBtn" title="Volver al inicio" aria-label="Volver arriba">
+        <span class="arrow-up"></span>
+    </button>
 
-    // Cuando el usuario hace scroll hacia abajo 200px desde el inicio, mostrar el botón
-    window.onscroll = function() {scrollFunction()};
+    <script>
+        // --- 1. LÓGICA DE BARRA LATERAL (ACTIVE STATE) ---
+        // Detecta qué sección está visible y marca el link correspondiente
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-    function scrollFunction() {
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            // Mostrar como flex para centrar la flecha correctamente
-            mybutton.style.display = "flex";
-            // Pequeño retardo para la opacidad si quisieras animar la entrada, 
-            // pero con display:flex basta para que aparezca.
-        } else {
-            mybutton.style.display = "none";
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                // El -150 ayuda a que el cambio sea visualmente agradable al ojo humano
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Llamamos también a la función del botón
+            scrollFunction(); 
+        });
+
+        // --- 2. BOTÓN VOLVER ARRIBA ---
+        let mybutton = document.getElementById("scrollTopBtn");
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                mybutton.style.display = "flex";
+            } else {
+                mybutton.style.display = "none";
+            }
         }
-    }
 
-    // Cuando el usuario hace clic en el botón, volver al inicio suavemente
-    function topFunction() {
-        // Para Safari
-        document.body.scrollTop = 0; 
-        // Para Chrome, Firefox, IE y Opera
-        document.documentElement.scrollTop = 0; 
-    }
-</script>
+        function topFunction() {
+            document.body.scrollTop = 0; // Para Safari
+            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+        }
+    </script>
 </body>
 </html>
