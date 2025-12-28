@@ -104,6 +104,55 @@
         }
         .contact-links a { color: var(--text-color); }
 
+
+        /* --- BARRA LATERAL (SIDEBAR) --- */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            background-color: #0a0a0a;
+            border-right: 1px solid #333;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            margin-bottom: 15px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            transition: color 0.3s, padding-left 0.3s;
+            display: block;
+            border-left: 2px solid transparent;
+            padding-left: 10px;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            padding-left: 15px;
+        }
+
+        .nav-link.active {
+            color: #fff;
+            border-left: 2px solid #fff;
+            padding-left: 15px;
+            font-weight: 600;
+        }
+
+        
+
         /* SECCIONES */
         section {
             padding-top: 30px;
@@ -376,7 +425,20 @@
     </style>
 </head>
 <body>
+    <!-- SIDEBAR DE NAVEGACIÓN -->
+    <nav class="sidebar">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#perfil">Perfil</a></li>
+            <li class="nav-item"><a href="#competencias">Competencias</a></li>
+            <li class="nav-item"><a href="#toolkit">Toolkit</a></li>
+            <li class="nav-item"><a href="#experiencia">Profesional</a></li>
+            <li class="nav-item"><a href="#docencia">Docencia</a></li>
+            <li class="nav-item"><a href="#formacion">Formación</a></li>
+        </ul>
+    </nav>
 
+
+    
     <main>
         
         <!-- HEADER -->
@@ -385,15 +447,7 @@
             <div class="role">Creative Project Lead | Diseño 360°</div>
             
             <div class="header-meta">
-                <!-- Navegación interna -->
-                <nav class="nav-links">
-                    <a href="#perfil">Perfil</a>
-                    <a href="#competencias">Competencias</a>
-                    <a href="#toolkit">Toolkit</a>
-                    <a href="#experiencia">Profesional</a>
-                    <a href="#docencia">Docencia</a>
-                    <a href="#formacion">Formación</a>
-                </nav>
+                
                 
                 <!-- Contacto -->
                 <div class="contact-links">
