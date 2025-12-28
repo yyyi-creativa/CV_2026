@@ -765,24 +765,6 @@
         }
     </script>
 
-
-<script type="module">
-  import { Counter } from 'https://cdn.jsdelivr.net/npm/counterapi/dist/counter.esm.min.js';
-
-  // Create a counter client (V2 API)
-  const counter = new Counter({ workspace: 'yyyi-creativas-team-2294' });
-
-  // Increment a page view counter
-  counter.up('page-views')
-    .then(result => {
-      console.log(`Page views: ${result.value}`);
-      document.getElementById('counter').textContent = result.value;
-    })
-    .catch(error => console.error('Counter error:', error.message));
-</script>
-
-<div>Views: <span id="counter">Loading...</span></div>
-
     
 </body>
 </html>
