@@ -45,7 +45,7 @@
             top: 0;
             background-color: var(--sidebar-bg); 
             border-right: 1px solid var(--sidebar-border);
-            padding: 60px 30px; /* Un poco más de aire arriba */
+            padding: 60px 30px; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -88,9 +88,11 @@
         /* --- 2. CONTENIDO PRINCIPAL --- */
         main {
             flex: 1;
-            max-width: 900px; 
+            /* CAMBIO: Aumentado de 900px a 1200px para ensanchar el contenido */
+            max-width: 1200px; 
             margin: 0 auto;
-            padding: 80px 60px; /* Ajuste de padding */
+            /* CAMBIO: Ajuste leve de padding lateral (de 60px a 50px) */
+            padding: 80px 50px; 
             position: relative; 
         }
 
@@ -149,7 +151,8 @@
             border-top: 1px solid #eee; /* Separador sutil */
             scroll-margin-top: 40px;
             display: grid;
-            grid-template-columns: 200px 1fr;
+            /* CAMBIO: Reduje la col izq a 180px para dar mas espacio a la derecha (1fr) */
+            grid-template-columns: 180px 1fr;
             gap: 40px;
         }
 
@@ -182,6 +185,8 @@
             line-height: 1.6;
             margin-bottom: 1.5rem;
             color: #333;
+            /* CAMBIO: Eliminado max-width 95% para usar todo el ancho */
+            max-width: 100%; 
         }
         .highlight {
             font-weight: 500;
@@ -193,8 +198,9 @@
         /* ENTRADAS (Experiencia / Formación) */
         .entry {
             display: grid;
+            /* CAMBIO: Fecha fija a 140px, el resto flexible */
             grid-template-columns: 1fr 140px;
-            gap: 20px;
+            gap: 30px; /* Un poco mas de aire entre columnas */
         }
 
         .entry-main h3 {
@@ -216,6 +222,7 @@
             color: #444;
             margin-top: 10px;
             line-height: 1.5;
+            max-width: 100%; /* Asegurar uso total del ancho */
         }
         
         .description ul { padding-left: 18px; margin-top: 8px; }
@@ -233,7 +240,8 @@
         /* COMPETENCIAS GRID */
         .competencies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            /* Ajuste automático, pero con mínimo más ancho */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 40px;
         }
         
